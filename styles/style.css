@@ -17,7 +17,6 @@ layer(init);
   html {
     font-family: "Open Sans", sans-serif;
     font-size: 100%;
-    line-height: 1.5;
     color: var(--text-color);
   }
   .header {
@@ -25,6 +24,6 @@ layer(init);
     background-size: cover;
     background-position: top left;
     background-color: var(--header-bg-color);
-    color: var(--header-bg-color);
+    color: var(--header-text-color);
   }
 }
