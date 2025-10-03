@@ -2,8 +2,13 @@
 
 @import url(./normalize.css) layer(reset);
 
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap') layer(init);
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap")
+layer(init);
 
 @layer design {
-
+  .header {
+    background-image: url("../images/header-2560w.webp");
+    background-size: cover;
+    background-position: top left;
+  }
 }
