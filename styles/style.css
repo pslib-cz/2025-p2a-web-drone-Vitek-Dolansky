@@ -13,11 +13,15 @@ layer(init);
     --primary-color: light-dark (#66d4d4, #2d6363);
     --secondary-color: light-dark (#fff, #fff);
     --text-color: light-dark(#000, #fff);
+    --bg-color: light-dark(#fff, #121212);
   }
   html {
     font-family: "Open Sans", sans-serif;
     font-size: 100%;
     color: var(--text-color);
+  }
+  body {
+    background-color: var(--bg-color);
   }
   .header {
     background-image: url("../images/header-2560w.webp");
