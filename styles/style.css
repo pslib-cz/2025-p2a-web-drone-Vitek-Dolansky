@@ -121,11 +121,6 @@ h1 {
 }
 .offer-box__list {
     list-style: none;
-    padding-left: 8px;
-}
-.li-style::marker {
-    color: var(--primary-color);
-    font-size: 1.2rem;
 }
 .drone-store {
     display: flex;
