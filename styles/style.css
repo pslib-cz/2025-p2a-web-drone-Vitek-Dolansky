@@ -1,48 +1,62 @@
 @layer reset, init, design;
 
 @import url(./normalize.css) layer(reset);
-
-@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap") layer(init);
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap') layer(init);
 
 @layer init {
     :root {
         color-scheme: light dark;
-        --header-bg-color: light-dark(#3b3e40, #3b3e40);
+        --header-bg-color: light-dark(#3B3E40, #3B3E40);
         --header-text-color: light-dark(#fff, #fff);
-        --primary-color: light-dark(#66d4d4, #2d6363);
+        --primary-color: light-dark(#66D4D4, #2b5a5a);
+        --text-color-primary: light-dark(#FFF, #FFF);
         --secondary-color: light-dark(#fff, #fff);
         --text-color: light-dark(#000, #fff);
-        --bg-color: light-dark(#fff, #121212);
+        --bg-color: light-dark(#fff, #000);
     }
-
     html {
-        font-family: "Open Sans", sans-serif;
-        font-size: 100%;
+        font-family: 'Open Sans', sans-serif;
+        font-size: 100%; /* default: 16px */
         color: var(--text-color);
     }
-
 }
 
 @layer design {
-
     body {
         background-color: var(--bg-color);
     }
-
     main {
         padding: 1rem;
         max-width: 960px;
         margin: 0 auto;
     }
-
     h1 {
-        font-size: 4rem;
-        font-weight: extra-bold;
-        /* 800 */
+        font-size: 4rem; /* 60px by default */
+        font-weight: extra-bold; /* 800 */
+    }
+    .heading {
+        font-family: 'Open Sans', sans-serif;
+        font-weight: 700; /* bold */
+    }
+    
+    .heading--h1 {
+        font-size: calc(1em + 3vw); /* responsive size */
+    }
+    .heading--h3 {
+        font-size: 1.125em; /* 18px by default */
+    }
+    .heading--bigger2x {
+        font-size: 2em;
     }
 
+    
+    .img-fluid {
+        display: block;
+        width: 100%;
+        height: auto;
+    }
     .header {
-        background-image: url("../images/header-2560w.webp");
+        background-image: url('../images/header-2560w.webp');
         background-size: cover;
         background-position: top left;
         background-color: var(--header-bg-color);
@@ -50,202 +64,109 @@
         line-height: 1.5;
         padding: 1rem;
     }
-
     .header__nav {
         text-align: center;
     }
+    .header__link {
 
+    }
     .header__intro {
         margin-top: 10vh;
     }
 
     .button {
         display: inline-block;
+        border-radius: .5rem;
         padding: 0.75em 2em;
-        border-radius: 0.5rem;
-    }
-
-    .button-light {
-        background-color: var(--secondary-color);
-        color: black;
         text-decoration: none;
     }
-
-    .button-blue {
+    .button--primary {
         background-color: var(--primary-color);
-        color: white;
-        text-decoration: none;
+        color: var(--text-color-primary);
     }
-
-    .img-fluid {
-        display: block;
-        width: 100%;
-        height: auto;
+    .button--light {
+        background-color: var(--secondary-color);
+        color: var(--text-color);
     }
-
     .img-block {
         margin: 0;
     }
-
     .img-block__caption {
         text-align: center;
-        font-size: 14px;
-        padding: 16px;
+        margin-top: 0.5em;
+    }
+    .info-block {
+        margin: 1em 0;
+        padding: 1.5em;
+        border: 3px solid var(--primary-color);
+    }
+    .info-block--jumbo {
+        background-color: var(--header-bg-color);
+        color: var(--header-text-color);
+        border: none;
+        text-align: center;
+    }
+    .info-block__title {
         margin-bottom: 1em;
     }
-
-    .info-box {
-        padding: 1.5rem;
-        border-width: 3px;
-        border: solid var(--primary-color);
-    }
-
-    .info-box__title {
-        color: var(--text-color);
+    .list__item {
         margin-bottom: 1em;
     }
-
-    .info-box__h1 {
-        font-size: 18px;
-        font-weight: 700;
+    .list__item::marker {
+        color: var(--primary-color);
     }
 
-    .info-box__content {
-        color: var(--text-color);
-        font-size: 1em;
-        line-height: 1.5;
+    .card-wrapper {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(min(15rem, 100%), 1fr));
+        gap: 1rem;
+        grid-template-rows: auto auto 1fr auto;
     }
 
-    .offer-box {
-        color: var(--text-color);
-        padding-top: 1em;
-        padding-bottom: 1em;
-    }
-
-    .offer-box__title {
-        color: var(--text-color);
-        margin-bottom: 1em;
-    }
-
-    .offer-box__h1 {
-        font-size: 20px;
-        font-weight: 700;
-        margin-bottom: 1em;
-    }
-
-    .offer-box__content {
-        color: var(--text-color);
-        font-size: 16px;
-        line-height: 1.5;
-    }
-
-    .offer-box__list {
-        list-style: none;
-    }
-
-    .drone-store {
-        display: flex;
-        flex-wrap: wrap;
-        align-items: flex-start;
-        justify-content: flex-start;
+    .card {
+        grid-row: span 4;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: subgrid;
+        border: 1px solid var(--primary-color);
+        padding: 1em;
         gap: 1rem;
     }
 
-    .drone-store>header {
-        flex-basis: 100%;
-        box-sizing: border-box;
+    .card__header {
+
     }
 
-    .drone-store__title {
-        color: var(--text-color);
-        margin-bottom: 5px;
+    .card__heading {
+
     }
 
-    .drone-store__h1 {
-        font-size: 28px;
-        font-weight: 700;
+    .card__content {
+
     }
 
-    .drone-store>span {
-        flex: 1 1 280px;
-        min-width: 280px;
-        max-width: 560px;
-        box-sizing: border-box;
+    .card__footer {
+
     }
 
-    .drone-store__item {
-        max-width: 280px;
-        display: inline-block;
-        padding: 1em;
-        vertical-align: top;
-    }
+    .card p {
 
-    .img-store {
-        display: inline-block;
-        width: 100%;
-        max-width: 20rem;
-        border: 1px;
-        border-radius: 0.5rem;
-    }
-
-    .drone-store__item-h1 {
-        color: var(--text-color);
-        font-size: 18px;
-        font-weight: 700;
-        margin-top: 1em;
-        margin-bottom: 1em;
-    }
-
-    .drone-store__content {
-        color: var(--text-color);
-        max-width: 280px;
-    }
-
-    .drone-discount {
-        color: var(--text-color);
-        background-color: var(--header-bg-color);
-        width: 100%;
-        padding: 2rem;
-        border-radius: 0.2rem;
-        text-align: center;
-        margin-top: 2rem;
-    }
-
-    .drone-discount__title {
-        color: var(--text-color);
-        margin-bottom: 1em;
-    }
-
-    .drone-discount__h1 {
-        font-size: 32px;
-        font-weight: 700;
-        margin-bottom: 1em;
-    }
-
-    .h1__max {
-        font-size: 4rem;
     }
 
     .gallery {
-        box-sizing: border-box;
-        margin-top: 1em;
+       box-sizing: border-box;
+       margin: -1em;
     }
-
+    
     .gallery__item {
         box-sizing: border-box;
         width: calc(50% - 2em);
         display: inline-block;
         vertical-align: top;
-        margin: 1em
+        margin: 1em;
     }
 
-    .footer {
-        text-align: center;
-        padding: 0.5em;
-        color: var(--text-color);
-        background-color: var(--header-bg-color);
-    }
     .gallery__item--w100 {
-        width: calc(100% - 2em)
+        width: calc(100% - 2em);
     }
 }
